@@ -80,6 +80,17 @@ describe('asCallback', () => {
         }));
     });
 
+    it('should pass the cache key to the runner', () => {
+        addAgent({ name: 'test-3', basePath, runner });
+        asCallback({ agentName: 'test-3', path: 'my/path', callback });
+        expect(runner).toHaveBeenCalledTimes(1);
+        expect(runner).toHaveBeenCalledWith(expect.objectContaining({
+            options: expect.objectContaining({
+                cacheKey: '{"method":"GET","url":"my/path","queryParameters":"","headers":""}',
+            }),
+        }));
+    });
+
     describe('when using not supported methods', () => {
         it('should not try to cache the response', () => {
             asCallback({ agentName, path: 'my/path', callback, options: { method: 'PUT' } });

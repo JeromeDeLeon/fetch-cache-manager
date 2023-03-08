@@ -4,6 +4,7 @@ import {
     getLowestFrequency as getLowestFrequencyIdx,
     isExpired as isExpiredIds,
     isGarbage as isGarbageIdx,
+    removeCacheItem as removeCacheItemIdx,
     resolveCallbacks as resolveCallbacksIdx,
     run as runIdx,
     stopFeed as stopFeedIdx,
@@ -13,17 +14,19 @@ import getItem from './get-item';
 import getLowestFrequency from './get-lowest-frequency';
 import isExpired from './is-expired';
 import isGarbage from './is-garbage';
+import removeCacheItem from './remove-cache-item';
 import resolveCallbacks from './resolve-callbacks';
 import run from './run';
 import stopFeed from './stop-feed';
 
 describe('cacheItem index', () => {
-    it('should export 8 methods', () => {
+    it('should export 9 methods', () => {
         expect(expiresInIdx).toEqual(expiresIn);
         expect(getItemIdx).toEqual(getItem);
         expect(getLowestFrequencyIdx).toEqual(getLowestFrequency);
         expect(isExpiredIds).toEqual(isExpired);
         expect(isGarbageIdx).toEqual(isGarbage);
+        expect(removeCacheItemIdx).toEqual(removeCacheItem);
         expect(resolveCallbacksIdx).toEqual(resolveCallbacks);
         expect(runIdx).toEqual(run);
         expect(stopFeedIdx).toEqual(stopFeed);

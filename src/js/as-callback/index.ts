@@ -72,6 +72,7 @@ export default function asCallback<T>({ agentName, path, options = {}, frequency
     const url = buildUrl({ agent, path, queryParams });
     const runnerOptions = {
         ...options,
+        cacheKey: key,
         method,
         headers: [ ...(options.headers ?? []), ...(agent.headers ?? []) ],
         query: queryParams,
